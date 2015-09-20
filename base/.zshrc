@@ -159,6 +159,9 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 #eval "$(ssh-agent -s)" > /dev/null
 alias ssh='ssh-add -l >/dev/null || ssh-addall && unalias ssh; ssh'
 
+# use new location of config for old ncmpcpp version (0.6.5)
+alias ncmpcpp='ncmpcpp -c ~/.config/ncmpcpp/config'
+
 
 # --------------------------------------------------------------------
 # Functions
