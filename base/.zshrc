@@ -79,6 +79,16 @@ setopt AUTO_PARAM_SLASH		# If the parameter content is a directory, add a traili
 
 
 # --------------------------------------------------------------------
+# Fortune
+# --------------------------------------------------------------------
+
+if [ `which fortune` ]; then
+	#echo ""
+	#fortune -s archer
+fi
+
+
+# --------------------------------------------------------------------
 # Prompts & Colors
 # --------------------------------------------------------------------
 
@@ -103,63 +113,7 @@ else
 	PR_USER_COLOR=$PR_LIGHT_GREEN
 fi
 
-# GIT PROMT EXTENSION
-#setopt prompt_subst
-#autoload -Uz vcs_info
-
-# VERSION1
-#zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-#zstyle ':vcs_info:*' formats       '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-#zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-#zstyle ':vcs_info:*' enable git cvs svn
-
-# or use pre_cmd, see man zshcontrib
-#vcs_info_wrapper() {
-#  vcs_info
-#  if [ -n "$vcs_info_msg_0_" ]; then
-#    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-#  fi
-#}
-#VCSPROMPT=$'$(vcs_info_wrapper)'
-
-
-#VERSION2
-#zstyle ':vcs_info:*' stagedstr 'M' 
-#zstyle ':vcs_info:*' unstagedstr 'M' 
-#zstyle ':vcs_info:*' check-for-changes true
-#zstyle ':vcs_info:*' actionformats '%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-#zstyle ':vcs_info:*' formats       '%F{5}[%F{2}%b%F{5}] %F{2}%c%F{3}%u%f'
-#zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
-#zstyle ':vcs_info:*' enable git 
-#+vi-git-untracked() {
-#  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-#    git status --porcelain | grep '??' &> /dev/null ; then
-#    hook_com[unstaged]+='%F{1}??%f'
-#  fi  
-#}
-#precmd () { vcs_info }
-#RPROMPT='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_} %f%# '
-
-#zstyle ':vcs_info:*' stagedstr 'M' 
-#zstyle ':vcs_info:*' unstagedstr 'M' 
-#zstyle ':vcs_info:*' check-for-changes true
-#zstyle ':vcs_info:*' actionformats '%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f'
-#zstyle ':vcs_info:*' formats       '%F{5}::%F{6}%b%F{5}.%F{2}%c%F{1}%u%f'
-#zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-#zstyle ':vcs_info:*' enable git cvs svn
-
-#precmd () { vcs_info }
-#VCSPROMPT='${vcs_info_msg_0_}'
 PS1="$PR_USER_COLOR% [%n@%m %2~$VCSPROMPT$PR_USER_COLOR]%(!.#.$)$PR_NO_COLOR "
-
-
-
-#ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
-#ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
-#PS1="[$PR_USER_COLOR%n$PR_WHITE@$PR_GREEN%u%m$PR_NO_COLOR:$PR_LIGHT_RED%2c$PR_NO_COLOR]%(!.#.$) "
-#RPS1="$PR_LIGHT_YELLOW(%D{%d.%m %H:%M})$PR_NO_COLOR"
 PS2="$PR_WHITE%_$PR_NO_COLOR>"
 
 
@@ -181,16 +135,14 @@ alias ll='ls -lh --color=auto'
 alias lt='ls -lht --color=auto'
 alias ltr='ls -lhtr --color=auto'
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto -n'
+alias egrep='egrep --color=auto -n'
 alias pacman-classic='/usr/bin/pacman'
 alias srm='/usr/bin/trash-put'
 alias mkdir='/bin/mkdir -p '
 alias trash-restore='restore-trash'
-alias dmesg='dmesg -T'
-
-#alias zfs='sudo /usr/bin/zfs'
-#alias zpool='/usr/bin/sudo /usr/bin/zpool'
+alias dmesg="dmesg -T"
+alias accumulate=' paste -sd+ - | bc'
 
 
 
@@ -198,6 +150,14 @@ alias dmesg='dmesg -T'
 alias vim="stty stop '' -ixoff ; vim"
 # `Frozing' tty, so after any command terminal settings will be restored
 ttyctl -f
+
+# make SSH-agent work
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# use ssh-add to insert a key once it is needed 
+#ssh-add -l >/dev/null || 
+#eval "$(ssh-agent -s)" > /dev/null
+alias ssh='ssh-add -l >/dev/null || ssh-addall && unalias ssh; ssh'
 
 
 # --------------------------------------------------------------------
@@ -211,6 +171,10 @@ pacman() {
 		(-R* | -U | *)
 			/usr/bin/sudo /usr/bin/pacman "$@" ;;
 	esac
+}
+
+ssh-addall() {
+	ssh-add $(ls  ~/.ssh/*id_* | grep -v ".pub")
 }
 
 zpool(){
@@ -229,6 +193,10 @@ zfs(){
 		*)
 			/usr/bin/sudo /usr/bin/zfs "$@" ;;
 	esac
+}
+
+mkgo() {
+	mkdir -p "$1" && cd "$1"
 }
 
 # --------------------------------------------------------------------

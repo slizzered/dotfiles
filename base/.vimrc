@@ -68,6 +68,9 @@ Plugin 'tpope/vim-commentary'
 " clipboard (i.e. over multiple instances of vim)
 " Plugin 'svermeulen/vim-easyclip'
 
+"" Git diff status on the left side
+"Plugin 'airblade/vim-gitgutter'
+
 " Syntax highlighting for systemd service files in Vim.
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 
@@ -103,6 +106,7 @@ nmap <silent> <C-t> :NERDTreeToggle<CR>
 "Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 "let g:NumberToggleTrigger="<F2>"
 
+Plugin 'elixir-lang/vim-elixir'
 Plugin 'rust-lang/rust.vim'
 Plugin 'ebfe/vim-racer'
 set hidden
@@ -191,6 +195,9 @@ augroup END
 " call the file browser to save it, otherwise just save it.
 nnoremap <silent> <C-S> :if expand("%") == ""<CR>browse confirm w<CR>else<CR>confirm w<CR>endif<CR>
 imap <c-s> <c-o><c-s>
+
+
+set guifont=Hack
 
 " create matching delimiters
 " vnoremap _( <Esc>`>a)<Esc>`<i(<Esc>

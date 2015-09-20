@@ -1,0 +1,139 @@
+# VIM #
+####### 
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+
+# persistent undo 
+*.un~
+
+# session
+Session.vim
+
+# temporary
+.netrwhist
+*~
+*.~lock*
+
+
+
+# Emacs #
+#########
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# elpa packages
+/elpa/
+
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+# cask packages
+.cask/
+
+
+
+
+# Eclipse #
+###########
+*.pydevproject
+.metadata
+.gradle
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+
+# Eclipse Core
+.project
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# TeXlipse plugin
+.texlipse
+
+
+
+
+
+# Ninja #
+#########
+.ninja_deps
+.ninja_log
+
+
+
+
+# iPythonNotebook #
+###################
+.ipynb_checkpoints/
+
+
+
+
+
+# MATLAB #
+##########
+# Windows default autosave extension
+*.asv
+
+# OSX / *nix default autosave extension
+*.m~
+
+# Compiled MEX binaries (all platforms)
+*.mex*
+
+# Simulink Code Generation
+slprj/
+
+
+
+
+
+# OS Folders #
+##############
+Thumbs.db
+.directory
+.Trash-*

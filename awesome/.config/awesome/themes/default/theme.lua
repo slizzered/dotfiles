@@ -73,13 +73,6 @@ theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/def
 theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
--- You can use your own command to set your wallpaper
---theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/default/background.png" }
---theme.wallpaper_cmd = { "awsetbg /home/carli/.config/awesome/themes/zenburn/zenburn-background.png" }
---theme.wallpaper_cmd = { "awsetbg -u feh /home/carli/Bilder/Wallpaper/alittlemotivation1080.png" }
--- theme.wallpaper_cmd = { "awsetbg -u feh -a /home/carli/Bilder/EOS400D/best/drop2xp.png" }
---theme.wallpaper_cmd = { "awsetbg -u feh -a /home/carli/Bilder/Wallpaper/Left_Right_Brain1600x1131.jpeg" }
---theme.wallpaper_cmd = { "awsetbg -u feh -c /home/carli/Bilder/new_bg.png" }
 --
 --since awesome 3.5 use this style (and the gears-module inside rc.lua)
 --theme.wallpaper =  "~/Bilder/Wallpaper/5lostbook_hi_19x12.jpg"

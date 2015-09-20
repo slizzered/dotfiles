@@ -154,7 +154,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Wibox
 -- create dio widget
 dio = wibox.widget.textbox()
-vicious.register(dio, vicious.widgets.dio, '<span color="' .. skyblue .. '">Disk:🗁 ${sda total_mb} MB/s</span>', 20)
+vicious.register(dio, vicious.widgets.dio, '<span color="' .. skyblue .. '">Disk: ${sda total_mb} MB/s</span>', 20)
 -- 
 -- --Create battery widget
 --batwidget = wibox.widget.textbox()
@@ -563,6 +563,7 @@ awful.rules.rules = {
 				 end
 	},
 	
+-- check WM Classes with xprop | grep WM_CLASS
 	-- Set Skype to always map on tag number 1 of the big screen
 	{ rule = { class = skype },
 	  properties = { tag = tags[main_screen][1] },

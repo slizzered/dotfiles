@@ -15,18 +15,11 @@ urxvt*fading: 10
 !URxvt*font: xft:Bitstream Vera Sans Mono:regular:pixelsize=12:antialias=true
 !Xft.dpi: 220
 !Xft.antialias: 1
-!Xft.hinting:    1
-!Xft.hintstyle:  hintfull
-!Xft.rgba:       rgb
-!xterm*faceName: DejaVu Sans LGC
-!xterm*faceSize: 10
-!URxvt*font: xft:DejaVu Sans LGC-10
-!URxvt.font: xft:DejaVu Sans Mono:pixelsize=12
-
-
-Xft: antialias: 1
 Xft.hinting:    1
 Xft.hintstyle:  hintfull
+Xft.rgba:       rgb
+!URxvt*font: xft:Hack:regular:pixelsize=11.5
+!URxvt.letterSpace: 1
 
 URxvt.perl-ext-common: default,matcher
 URxvt.matcher.button: 1
