@@ -1,0 +1,22 @@
+"2.2 (created: 2009/10/28 19:04:27)
+
+set gui=nomenu,nonavigation
+
+
+set runtimepath=/home/carli/.vimperator
+source! /home/carli/.vimperatorrc.local
+
+nnoremap j 7j
+nnoremap k 7k
+
+
+js <<EOF
+toggle_element = function (name) {
+  document.getElementById(name).collapsed ^= 1;
+}
+EOF
+" and now use it in mappings (':h key-notation'):
+map <silent> <F9> :js toggle_element('nav-bar')<CR>
+map <silent> <F2> :js toggle_element('PersonalToolbar')<CR>
+
+" vim: set ft=vimperator:

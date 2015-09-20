@@ -1,0 +1,12 @@
+[user]
+	name = Carlchristian Eckert
+	email = Carli-Eckert@gmx.de
+[color]
+	ui = true
+[alias]
+	l = log --onleine --graph --decorate --first-parent
+	la = log --onleline --graph --decorate --all
+[push]
+	default = simple
+[help]
+	autocorrect = 0

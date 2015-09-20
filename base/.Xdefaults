@@ -1,0 +1,74 @@
+urxvt*termName: rxvt-256color
+
+!*foreground:     rgb:22/22/22
+!*background:     rgb:fa/fa/fa
+URxvt.background: black
+URxvt.foreground: grey
+URxvt.saveLines: 10000
+!URxvt.tintColor: white
+URxvt.scrollBar: false
+URxvt.urgentOnBell: true
+
+urxvt*fading: 10
+
+!URxvt*font: xft:Source Code Pro:regular:pixelsize=12.5
+!URxvt*font: xft:Bitstream Vera Sans Mono:regular:pixelsize=12:antialias=true
+!Xft.dpi: 220
+!Xft.antialias: 1
+!Xft.hinting:    1
+!Xft.hintstyle:  hintfull
+!Xft.rgba:       rgb
+!xterm*faceName: DejaVu Sans LGC
+!xterm*faceSize: 10
+!URxvt*font: xft:DejaVu Sans LGC-10
+!URxvt.font: xft:DejaVu Sans Mono:pixelsize=12
+
+
+Xft: antialias: 1
+Xft.hinting:    1
+Xft.hintstyle:  hintfull
+
+URxvt.perl-ext-common: default,matcher
+URxvt.matcher.button: 1
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.matcher.pattern.2: (\\/[-_\\w\\d]+)+\\.html
+
+!!*foreground:     rgb:22/22/22
+!!*background:     rgb:fa/fa/fa
+
+
+!! first color is used in .zshrc (and other places?!)
+!! second color is used for colorized output of ls (and other stuff?)
+
+!!black
+!!*color0:         rgb:4f/4f/4f
+!!*color8:         rgb:25/25/25
+
+!!red
+!!*color1:         rgb:85/0d/0d
+!!*color9:         rgb:98/2b/2b
+
+!!green
+!!*color2:         rgb:88/be/32
+*color10:        rgb:af/f7/3e
+
+!!yellow (orange)
+!!*color3:         rgb:ff/7e/00
+!!*color11:        rgb:fa/d4/3d
+
+!!blue
+*color4:         rgb:32/4c/80
+*color12:        rgb:2b/4f/98
+
+!!magenta
+!!*color5:         rgb:70/6c/9a
+!!*color13:        rgb:82/6a/b1
+
+!!cyan
+!!*color6:         rgb:92/b1/9e
+!!*color14:        rgb:a1/cd/cd
+
+!!white
+!!*color7:         rgb:00/00/00
+!!*color15:        rgb:00/00/00
