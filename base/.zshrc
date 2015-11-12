@@ -217,6 +217,10 @@ export wiki_browser=firefox
 # for steamVlinux (otherwise, pulseaudio is assumed...)
 export SDL_AUDIODRIVER=alsa
 
+# for libSplash (temporary)
+export SPLASH_ROOT=/home/carli/dev/splashinstall
+export PATH=$PATH:/home/carli/dev/splashinstall/bin
+
 
 
 # --------------------------------------------------------------------

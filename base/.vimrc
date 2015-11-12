@@ -1,4 +1,3 @@
-set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -106,6 +105,18 @@ nmap <silent> <C-t> :NERDTreeToggle<CR>
 "Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 "let g:NumberToggleTrigger="<F2>"
 
+" https://github.com/easymotion/vim-easymotion
+" move fast with \\w
+" find fast with \\f
+Plugin 'easymotion/vim-easymotion'
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)")
+
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'rust-lang/rust.vim'
 Plugin 'ebfe/vim-racer'
@@ -144,6 +155,7 @@ set mouse=v
 set wildmenu
 set wildmode=list:longest,full
 set guifont=Monospace\ 7
+set laststatus=2 "always show the status line"
 
 " wrap real lines into more managable visible lines
 set wrap linebreak nolist
@@ -173,6 +185,7 @@ autocmd FileType python map <F5> :w<CR>:!python "%"<CR>
 autocmd FileType tex map <F5> :w<CR>:!make<CR><CR>
 autocmd FileType sh map <F5> :w<CR>:!"%"<CR>
 autocmd FileType cpp map <F5> :w<CR>:!make<CR>
+autocmd BufRead,BufNewFile *.p map <F5> :w<CR>:!gnuplot "%"<CR>
 
 " activate spellchecking for certain filetypes
 autocmd Filetype tex setlocal spell spelllang=en_us
@@ -198,48 +211,3 @@ imap <c-s> <c-o><c-s>
 
 
 set guifont=Hack
-
-" create matching delimiters
-" vnoremap _( <Esc>`>a)<Esc>`<i(<Esc>
-" vnoremap _[ <Esc>`>a]<Esc>`<i[<Esc>
-" autocmd Filetype cpp inoremap ( ()<Esc>i
-" autocmd Filetype cpp inoremap [ []<Esc>i
-" autocmd Filetype cpp inoremap { {<CR>}<Esc>O<TAB>
-" autocmd Filetype cpp autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
-" autocmd Filetype cpp inoremap ) <c-r>=ClosePair(')')<CR>
-" autocmd Filetype cpp inoremap ] <c-r>=ClosePair(']')<CR>
-" autocmd Filetype cpp inoremap } <c-r>=CloseBracket()<CR>
-" autocmd Filetype cpp inoremap " <c-r>=QuoteDelim('"')<CR>
-" autocmd Filetype cpp inoremap ' <c-r>=QuoteDelim("'")<CR>
-
-" function ClosePair(char)
-" 	if getline('.')[col('.') - 1] == a:char
-" 		return "\<Right>"
-" 	else
-" 		return a:char
-" 	endif
-" endf
-
-" function CloseBracket()
-" 	if match(getline(line('.') + 1), '\s*}') < 0
-" 		return "\<CR>}"
-" 	else
-" 		return "\<Esc>j0f}a"
-" 	endif
-" endf
-
-" function QuoteDelim(char)
-" 	let line = getline('.')
-" 	let col = col('.')
-" 	if line[col - 2] == "\\"
-" 		"Inserting a quoted quotation mark into
-" 		the string
-" 		return a:char
-" 	elseif line[col - 1] == a:char
-" 		"Escaping out of the string
-" 		return "\<Right>"
-" 	else
-" 		"Starting a string
-" 		return a:char.a:char."\<Esc>i"
-" 	endif
-" endf
