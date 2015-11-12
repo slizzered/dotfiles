@@ -117,6 +117,11 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)")
 
+" https://github.com/ntpeters/vim-better-whitespace
+" :ToggleWhitespace
+" :StripWhitespace
+Plugin 'ntpeters/vim-better-whitespace'
+
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'rust-lang/rust.vim'
 Plugin 'ebfe/vim-racer'
@@ -156,6 +161,8 @@ set wildmenu
 set wildmode=list:longest,full
 set guifont=Monospace\ 7
 set laststatus=2 "always show the status line"
+set list "needed to make listchars possible
+set listchars=tab:\|\·   "display tabs as |···"
 
 " wrap real lines into more managable visible lines
 set wrap linebreak nolist
