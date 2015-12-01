@@ -143,7 +143,7 @@ alias mkdir='/bin/mkdir -p '
 alias trash-restore='restore-trash'
 alias dmesg="dmesg -T"
 alias accumulate=' paste -sd+ - | bc'
-
+alias df='df -hT | /usr/bin/egrep -i "file|^/|^tank|/tmp$"'
 
 
 # prevent VIM from freezing when I press CTRL-S 
