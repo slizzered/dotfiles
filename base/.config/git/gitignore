@@ -1,10 +1,10 @@
 # VIM #
-####### 
+#######
 # swap
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 
-# persistent undo 
+# persistent undo
 *.un~
 
 # session
@@ -51,6 +51,16 @@ tramp
 # cask packages
 .cask/
 
+######################## End of Emacs
+
+
+
+
+
+# Clion / IntelliJ #
+####################
+.idea/
+*.iws
 
 
 
@@ -66,6 +76,9 @@ tramp
 local.properties
 .settings/
 .loadpath
+
+# KDevelop
+*.kdev4
 
 # Eclipse Core
 .project
@@ -94,6 +107,7 @@ local.properties
 # TeXlipse plugin
 .texlipse
 
+################### End of Eclipse
 
 
 
@@ -128,6 +142,7 @@ local.properties
 # Simulink Code Generation
 slprj/
 
+################ End of MATLAB
 
 
 
