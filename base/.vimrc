@@ -32,7 +32,7 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'user/L9', {'name': 'newL9'}
 "
 
-" True Sublime Text style multiple selections for Vim 
+" True Sublime Text style multiple selections for Vim
 Plugin 'terryma/vim-multiple-cursors'
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
@@ -63,6 +63,7 @@ Plugin 'tpope/vim-abolish'
 
 " comment with gc or gcc
 Plugin 'tpope/vim-commentary'
+" see further below the setting of commentstring
 
 " clipboard (i.e. over multiple instances of vim)
 " Plugin 'svermeulen/vim-easyclip'
@@ -121,6 +122,18 @@ map  N <Plug>(easymotion-prev)")
 " :ToggleWhitespace
 " :StripWhitespace
 Plugin 'ntpeters/vim-better-whitespace'
+autocmd VimEnter * :hi ExtraWhiteSpace ctermbg=52
+"autocmd VimEnter * :hi ExtraWhiteSpace ctermbg=88
+"autocmd VimEnter * :hi ExtraWhiteSpace ctermbg=124
+
+" https://github.com/nathanaelkane/vim-indent-guides
+" http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
+" indentation is colored for better visibility
+Plugin 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=233 ctermbg=233
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=232 ctermbg=232
+autocmd Vimenter * :IndentGuidesEnable
 
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'rust-lang/rust.vim'
@@ -161,11 +174,12 @@ set wildmenu
 set wildmode=list:longest,full
 set guifont=Monospace\ 7
 set laststatus=2 "always show the status line"
-set list "needed to make listchars possible
-set listchars=tab:\|\·   "display tabs as |···"
+"set list "needed to make listchars possible
+"set listchars=tab:\|\·   "display tabs as |···"
+set history=5000
 
 " wrap real lines into more managable visible lines
-set wrap linebreak nolist
+set wrap linebreak
 
 " enable pasting with middle mouse button
 map <MiddleMouse> "*p
@@ -185,6 +199,12 @@ set foldlevelstart=20
 au BufWinLeave ?* mkview
 au BufWinEnter ?* silent loadview
 
+augroup cuda
+	autocmd BufRead,BufNewFile *.cu set filetype=cpp
+	autocmd BufRead,BufNewFile *.cuh set filetype=cpp
+	autocmd BufRead,BufNewFile *.hpp set filetype=cpp
+augroup END
+
 " execute these commands when some filetype is opened
 autocmd FileType haskell map <F5> :w<CR>:!ghci "%"<CR>
 autocmd FileType prolog map <F5> :w<CR>:!prolog "%"<CR>
@@ -192,6 +212,8 @@ autocmd FileType python map <F5> :w<CR>:!python "%"<CR>
 autocmd FileType tex map <F5> :w<CR>:!make<CR><CR>
 autocmd FileType sh map <F5> :w<CR>:!"%"<CR>
 autocmd FileType cpp map <F5> :w<CR>:!make<CR>
+autocmd FileType cpp set commentstring=//\ %s
+autocmd FileType cmake set commentstring=#\ %s
 autocmd BufRead,BufNewFile *.p map <F5> :w<CR>:!gnuplot "%"<CR>
 
 " activate spellchecking for certain filetypes
@@ -203,13 +225,7 @@ autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en_us
 " while opening a TeX-file, make VIM behave like it was a LaTeX file
 let g:tex_flavor = "latex"
 
-augroup cuda
-	autocmd BufRead,BufNewFile *.cu set filetype=cpp
-	autocmd BufRead,BufNewFile *.cuh set filetype=cpp
-	autocmd BufRead,BufNewFile *.hpp set filetype=cpp
-augroup END
-
-" use ctrl-s to save while typing 
+" use ctrl-s to save while typing
 " ATTENTION: Needs some settings in .zshrc or .bashrc to ignore the Ctrl-S
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
