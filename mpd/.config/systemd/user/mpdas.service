@@ -4,6 +4,7 @@ After=mpd.service
 
 [Service]
 ExecStart=/usr/bin/mpdas --no-daemon
+Restart=on-failure
 
 [Install]
 WantedBy=default.target
