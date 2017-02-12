@@ -109,14 +109,14 @@ nmap <silent> <C-t> :NERDTreeToggle<CR>
 " https://github.com/easymotion/vim-easymotion
 " move fast with \\w
 " find fast with \\f
-Plugin 'easymotion/vim-easymotion'
+"Plugin 'easymotion/vim-easymotion'
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)")
+"map  / <Plug>(easymotion-sn)
+"omap / <Plug>(easymotion-tn)
+"map  n <Plug>(easymotion-next)
+"map  N <Plug>(easymotion-prev)")
 
 " https://github.com/ntpeters/vim-better-whitespace
 " :ToggleWhitespace
@@ -131,8 +131,8 @@ autocmd VimEnter * :hi ExtraWhiteSpace ctermbg=52
 " indentation is colored for better visibility
 Plugin 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=233 ctermbg=233
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=232 ctermbg=232
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#121212 ctermbg=233
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#080808 ctermbg=232
 autocmd Vimenter * :IndentGuidesEnable
 
 Plugin 'elixir-lang/vim-elixir'

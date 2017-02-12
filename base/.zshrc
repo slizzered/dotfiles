@@ -373,3 +373,4 @@ zmodload -a zsh/zprof zprof
 
 #zmodload -a zsh/complist complist	# Colored completion list
 
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
