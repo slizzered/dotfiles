@@ -1,0 +1,11 @@
+[Unit]
+Description=Compton
+After=dbus.service
+
+[Service]
+ExecStart=/usr/bin/compton
+Environment=DISPLAY=:0
+Restart=always
+
+[Install]
+WantedBy=default.target
